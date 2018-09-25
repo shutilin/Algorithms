@@ -51,13 +51,13 @@ public class CustomSorts {
         if (start < end) {
             int q = findQ(array, start, end);
 
-            if (q - 1 - start <= n) {
+            if (end - start >= n) {
                 quickSort(array, start, q - 1);
             } else {
                 insertionSort(array, start, q - 1);
             }
 
-            if (end - (q + 1) <= n) {
+            if (end - start >= n) {
                 quickSort(array, q + 1, end);
             } else {
                 insertionSort(array, q + 1, end);

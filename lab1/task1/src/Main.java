@@ -1,18 +1,44 @@
-import java.time.Duration;
 import java.time.Instant;
-import java.util.Arrays;
+
 
 public class Main {
-    public static void main(String[] args) {
-        int[] array = new int[]{2, 5, 1, 8, 10, 0};
+    public static void main(String[] args) throws Exception {
+
+        long timeElapsed;
+        long wholeTime = 0;
+        long timeStart, timeEnd;
+
+        for (int i=0;i<50;i++) {
+
+            int[] array = ArrayGenerator.getArray(i);
+
+            timeStart = System.nanoTime();
+            CustomSorts.quickSort(array, 0, array.length - 1);
+            timeEnd = System.nanoTime();
+
+            timeElapsed = timeEnd - timeStart;
+            wholeTime += timeElapsed;
+            System.out.println("QuickSort " + timeElapsed);
+        }
+
+        System.out.printf("QS average time: " + wholeTime/50);
 
 
-        Instant start = Instant.now();
-        CustomSorts.hybridSort(array, 0, array.length - 1, 2);
-        Instant finish = Instant.now();
+//        for (int i=0;i<50;i++) {
+//
+//            int[] array = ArrayGenerator.getArray(i);
+//
+//            timeStart = System.nanoTime();
+//            CustomSorts.hybridSort(array, 0, array.length - 1, 50);
+//            timeEnd = System.nanoTime();
+//
+//            timeElapsed = timeEnd - timeStart;
+//            wholeTime += timeElapsed;
+//            //System.out.println("Hybrid Sort " + timeElapsed);
+//        }
+//
+//        System.out.printf("HS average time: " + wholeTime/50);
+        //HS average time: 9034927
 
-        long timeElapsed = Duration.between(start, finish).toMillis();
-        System.out.println("time " + timeElapsed);
-        System.out.println(Arrays.toString(array));
     }
 }
