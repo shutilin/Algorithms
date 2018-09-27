@@ -1,0 +1,30 @@
+QS average time: 9073619.8
+HS average time: 9010994.66 n:199
+QS average time: 9073619.8
+HS average time: 9063514.04 n:192
+QS average time: 9073619.8
+HS average time: 9012519.44 n:191
+QS average time: 9073619.8
+HS average time: 8971654.4 n:181
+QS average time: 9073619.8
+HS average time: 8993793.54 n:179
+QS average time: 9073619.8
+HS average time: 9049931.8 n:177
+QS average time: 9073619.8
+HS average time: 9040861.2 n:175
+QS average time: 9073619.8
+HS average time: 8994196.52 n:174
+QS average time: 9073619.8
+HS average time: 9011855.78 n:168
+QS average time: 9073619.8
+HS average time: 8980938.24 n:165
+QS average time: 9073619.8
+HS average time: 8890311.04 n:164
+QS average time: 9073619.8
+HS average time: 9043816.22 n:130
+QS average time: 9073619.8
+HS average time: 9056663.78 n:121
+QS average time: 9073619.8
+HS average time: 9042693.78 n:87
+
+Process finished with exit code 0

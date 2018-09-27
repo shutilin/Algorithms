@@ -1,44 +1,55 @@
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        long timeElapsed;
-        long wholeTime = 0;
-        long timeStart, timeEnd;
+        long timeElapsedQS, timeElapsedHS;
+        long wholeTimeQS = 0, wholeTimeHS = 0;
+        long timeStartQS, timeEndQS, timeStartHS, timeEndHS;
+        long timeFor5050 = 0;
 
-        for (int i=0;i<50;i++) {
-
-            int[] array = ArrayGenerator.getArray(i);
-
-            timeStart = System.nanoTime();
-            CustomSorts.quickSort(array, 0, array.length - 1);
-            timeEnd = System.nanoTime();
-
-            timeElapsed = timeEnd - timeStart;
-            wholeTime += timeElapsed;
-            System.out.println("QuickSort " + timeElapsed);
-        }
-
-        System.out.printf("QS average time: " + wholeTime/50);
-
-
-//        for (int i=0;i<50;i++) {
+//        for (int j = 0; j < 10; j++) {
 //
-//            int[] array = ArrayGenerator.getArray(i);
+//            for (int i = 0; i < 50; i++) {
+//                int[] array = ArrayGenerator.getArray(i);
 //
-//            timeStart = System.nanoTime();
-//            CustomSorts.hybridSort(array, 0, array.length - 1, 50);
-//            timeEnd = System.nanoTime();
+//                timeStartQS = System.nanoTime();
+//                CustomSorts.quickSort(array, 0, array.length - 1);
+//                timeEndQS = System.nanoTime();
 //
-//            timeElapsed = timeEnd - timeStart;
-//            wholeTime += timeElapsed;
-//            //System.out.println("Hybrid Sort " + timeElapsed);
+//                timeElapsedQS = timeEndQS - timeStartQS;
+//                wholeTimeQS += timeElapsedQS;
+//            }
+//
+//            System.out.println("QS average time: " + wholeTimeQS / 50.0);
+//            wholeTimeQS = 0;
 //        }
-//
-//        System.out.printf("HS average time: " + wholeTime/50);
-        //HS average time: 9034927
 
+        //minimal value: 9073619.8;
+        for (int j = 200; j > 5; j--) {
+            for (int i = 0; i < 50; i++) {
+
+                int[] array = ArrayGenerator.getArray(i);
+
+                timeStartHS = System.nanoTime();
+                CustomSorts.hybridSort(array, 0, array.length - 1, j);
+                timeEndHS = System.nanoTime();
+
+                timeElapsedHS = timeEndHS - timeStartHS;
+                wholeTimeHS += timeElapsedHS;
+            }
+
+
+            if (9073619.8 > wholeTimeHS / 50.0) {
+                System.out.println("QS average time: " + 9073619.8);
+                System.out.println("HS average time: " + wholeTimeHS / 50.0 + " n:" + j);
+            }
+            //wholeTimeQS = 0;
+            wholeTimeHS = 0;
+            //HS average time: 9034927
+        }
     }
 }
