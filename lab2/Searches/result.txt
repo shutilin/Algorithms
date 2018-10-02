@@ -1,0 +1,11 @@
+length = 9
+
+Benchmark                            Mode  Samples  Score  Score error  Units
+s.Main.measureBinarySearch           avgt       20  7,328        0,205  ns/op
+s.Main.measureInterpolationSearch    avgt       20  4,955        0,135  ns/op
+
+length = 8 - answer
+
+Benchmark                            Mode  Samples  Score  Score error  Units
+s.Main.measureBinarySearch           avgt       20  1,624        0,043  ns/op
+s.Main.measureInterpolationSearch    avgt       20  4,813        0,113  ns/op
