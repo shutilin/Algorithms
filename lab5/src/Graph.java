@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Graph {
@@ -20,6 +21,7 @@ public class Graph {
     }
 
     private void populateEdges() {
+        edges.clear();
         for (int i = 0; i < numberOfVertices - 1; i++) {
             for (int j = i + 1; j < numberOfVertices; j++) {
                 if (adjacencyMatrix[i][j] != 0) {
@@ -44,11 +46,13 @@ public class Graph {
     public void removeEdge(int a, int b) {
         this.adjacencyMatrix[a][b] = 0;
         this.adjacencyMatrix[b][a] = 0;
+        this.populateEdges();
     }
 
     public void addEdge(int a, int b) {
         this.adjacencyMatrix[a][b] = 1;
         this.adjacencyMatrix[b][a] = 1;
+        this.populateEdges();
     }
 
     public int[][] getAdjacencyMatrix() {
@@ -69,5 +73,10 @@ public class Graph {
 
     public void setEdges(List<Edge> edges) {
         this.edges = edges;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(edges.toArray());
     }
 }
